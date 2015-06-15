@@ -7,7 +7,10 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 app.get('/', function(req, res) {
-    res.render('index');
+    var emojis = ['thumbsup', 'smile', 'soccer'];
+    res.render('index', {
+        emojis: emojis
+    });
 });
 
 var server = app.listen(3000, function() {

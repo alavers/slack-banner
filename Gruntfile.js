@@ -38,8 +38,7 @@ module.exports = function(grunt) {
                     '<%= dirDebug %>main.js': 'src/main.js'
                 },
                 options: {
-                    debug: true,
-                    paths: ['./node_modules', './src']
+                    debug: true
                 }
             },
             prod: {
@@ -52,7 +51,7 @@ module.exports = function(grunt) {
         watch: {
             dev: {
                 files: [
-                    './src/**/*.js', './src/**/*.less'
+                    './src/**/*.js', './src/**/*.less', './views/**/*.jade'
                 ],
                 tasks: [
                     'browserify:dev'
