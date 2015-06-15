@@ -18,3 +18,4 @@ grunt-aws.json
 *.suo
 .idea/
 /temp
+.tmp/
