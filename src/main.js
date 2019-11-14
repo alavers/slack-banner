@@ -5,7 +5,7 @@ var fs = require('fs');
 var hashabet = fs.readFileSync(__dirname + '/hashabet.flf', 'utf8');
 require('./main.less');
 var figlet = require('./figlet');
-var ZeroClipboard = require('zeroclipboard');
+var ClipboardJS = require('./clipboard');
 figlet.parseFont('default', hashabet);
 
 // TODO: Customizable background
@@ -49,18 +49,22 @@ $(document).ready(function() {
     var options = $('.option');
     var hint = $('.hint');
     var copyButton = $('#copy-button');
-    var zc = new ZeroClipboard(document.getElementById("copy-button"));
+    var cb = new ClipboardJS('#copy-button');
 
-    zc.on("ready", function(readyEvent) {
-        copyButton.removeClass('invisible');
+    cb.on("success", function() {
+        var orig = copyButton.html();
+        copyButton.html('COPIED!');
+        setTimeout(function() {
+            copyButton.html(orig);
+        }, 1000);
+    });
 
-        zc.on("aftercopy", function() {
-            var orig = copyButton.html();
-            copyButton.html('COPIED!');
-            setTimeout(function() {
-                copyButton.html(orig);
-            }, 1000);
-        });
+    cb.on("error", function() {
+        var orig = copyButton.html();
+        copyButton.html('shit didnt work');
+        setTimeout(function() {
+            copyButton.html(orig);
+        }, 1000);
     });
 
     chooseFg(options.first());

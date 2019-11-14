@@ -9,6 +9,10 @@
   "author": {
     "name": "Andrew Lavers"
   },
+  "engines": {
+    "node": "12.13.0",
+    "npm": "6.12.0"
+  },
   "description": "Generate banner messages made of emojis for slack",
   "repository": "http://github.com/alavers/slack-banner",
   "devDependencies": {
@@ -24,12 +28,12 @@
     "node-lessify": "0.0.10"
   },
   "dependencies": {
-    "express": "^4.12.4",
-    "figlet": "^1.1.1",
+    "clipboard": "^2.0.4",
+    "express": "^4.17.1",
+    "figlet": "^1.2.4",
     "jade": "^1.11.0",
-    "jquery": "^2.1.4",
-    "jstify": "^0.9.0",
-    "zeroclipboard": "^2.2.0"
+    "jquery": "^3.4.1",
+    "jstify": "^0.14.0"
   },
   "browserify": {
     "transform": [
